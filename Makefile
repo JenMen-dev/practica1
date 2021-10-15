@@ -15,6 +15,12 @@ lint:
 	go get -u golang.org/x/lint/golint
 	golint -set_exit_status ./...
 
+accept:
+	curl --fail http://localhost:8080/api/
+
+run-docker:
+	docker-compose up -d
+
 build:
 	# MacOS
 	cd cmd/geekshubs-library && GOOS=darwin GOARCH=amd64 go build -o ../../bin/main-darwin-amd64 main.go
